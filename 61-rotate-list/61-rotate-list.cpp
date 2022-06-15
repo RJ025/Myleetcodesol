@@ -10,60 +10,25 @@
  */
 class Solution {
 public:
-    void insertatend(ListNode*&head , ListNode*&tail , int val)
-{
-    if(!head)
-    {
-        ListNode*n = new ListNode(val);
-        head = tail = n;
-    }
-    else
-    {
-        ListNode*n = new ListNode(val);
-        tail->next = n;
-        tail = n;
-    }
-}
-    int lengthLL(ListNode*head)
-    {
-        int count=0;
-        while(head!=NULL)
-        {
-            head=head->next;
-            count++;
-        }
-        return count;
-    }
     ListNode* rotateRight(ListNode* head, int k) {
-        if(!head)return head;
-        if(k>=lengthLL(head))
-        {
-            k = k%lengthLL(head);
-        }
-        if(k%lengthLL(head)==0)
-        {
-            k=k/lengthLL(head);
-        }
-                if(!head->next || k==0)return head;
-
+        if(!head || !head->next || k==0)return head;
+        int len =1;
         ListNode*temp = head;
-        ListNode*a = NULL , *b = NULL;
-        int diff = lengthLL(head)-k;
-        while(diff--)
+        while(temp->next!=NULL)
         {
-            insertatend(a , b , temp->val);
-            temp=temp->next;
-        }
-        ListNode*c = NULL , *d = NULL;
-        while(temp!=NULL)
-        {
-            insertatend(c , d , temp->val);
+            len++;
             temp=temp->next;
         }
         
-        d->next = a;
+        k=k%len;
+        temp->next = head;
+        k=len-k;
+        while(k--)temp=temp->next;
         
-        return c;
+        head = temp->next;
+        temp->next = NULL;
+        
+        return head;
         
     }
 };
