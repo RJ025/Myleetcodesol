@@ -33,6 +33,7 @@ public:
             code(root->right , targetSum , ans , temp);
             temp.pop_back();
         }
+        else return;
         
         
     }
