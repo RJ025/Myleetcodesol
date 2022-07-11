@@ -22,12 +22,13 @@ public:
             int n = q.size();
             
             for(int i=0 ; i<n ; i++)
-            {
-                TreeNode*x = q.front();
+            {TreeNode*x = q.front();
+                if(i==n-1)ans.push_back(x->val);
+                
                 q.pop();
                 if(x->left)q.push(x->left);
                 if(x->right)q.push(x->right);
-                if(i==n-1)ans.push_back(x->val);
+                
             }
             
         }
