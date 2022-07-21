@@ -1,7 +1,7 @@
 class Solution {
 public:
     // int ans=0;
-    int code(vector<int>freq)
+    int code(vector<int>&freq)
     {
         int ans=0;
         for(int i=0 ; i<26 ; i++)
