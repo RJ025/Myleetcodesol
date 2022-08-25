@@ -1,15 +1,15 @@
 class Solution {
 public:
     
-    int rec(vector<int>&nums , int i)
-    {
-        if(i>=nums.size())return 0;
+//     int rec(vector<int>&nums , int i)
+//     {
+//         if(i>=nums.size())return 0;
         
-        int inc = rec(nums , i+2) + nums[i];
-        int dec = rec(nums , i+1) + 0;
+//         int inc = rec(nums , i+2) + nums[i];
+//         int dec = rec(nums , i+1) + 0;
         
-        return max(inc , dec);
-    }
+//         return max(inc , dec);
+//     }
     
     int top(vector<int>&nums , int i , vector<int>&dp)
     {
