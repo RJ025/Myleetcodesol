@@ -14,26 +14,17 @@ public:
     void code(TreeNode*root , int targetSum , vector<vector<int>>&ans , vector<int>&temp)
     {
         
-        targetSum-=root->val;
+       if(!root)return;
+        
         temp.push_back(root->val);
         
-        if(targetSum==0 and !root->right and !root->left)
-        {
-            ans.push_back(temp);
-            return;
-        }
+        if(!root->left and !root->right and targetSum==root->val) ans.push_back(temp);
         
-        if(root->left)
-        {
-            code(root->left , targetSum , ans , temp);
-            temp.pop_back();
-        }
-        if(root->right)
-        {
-            code(root->right , targetSum , ans , temp);
-            temp.pop_back();
-        }
-        else return;
+        code(root->left , targetSum-root->val , ans , temp);
+        code(root->right , targetSum-root->val , ans , temp);
+        
+        temp.pop_back();
+
         
         
     }
