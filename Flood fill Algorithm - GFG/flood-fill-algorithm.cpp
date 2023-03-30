@@ -10,6 +10,8 @@ class Solution {
         ans[sr][sc]=newcolor;
         int n=image.size();
         int m = image[0].size();
+        // queue<pair<int , int>>q;
+        // q.push({sr , sc});
         
         for(int i=0 ; i<4 ; i++)
         {
@@ -20,6 +22,24 @@ class Solution {
                 dfs(ans , image , row , col , nrow , ncol , newcolor , ini);
             }
         }
+        
+        // while(!q.empty())
+        // {
+        //     int r = q.front().first;
+        //     int c = q.front().second;
+        //     q.pop();
+        //     ans[r][c]=newcolor;
+        //     for(int i=0 ; i<4 ; i++)
+        //     {
+        //         int nrow = r+row[i];
+        //         int ncol = c+col[i];
+        //         if(nrow>=0 and nrow<n and ncol>=0 and ncol<m and image[nrow][ncol]==ini and ans[nrow][ncol]!=newcolor)
+        //         {
+                    
+        //             q.push({nrow , ncol});
+        //         }
+        //     }
+        // }
     }
     
 public:
